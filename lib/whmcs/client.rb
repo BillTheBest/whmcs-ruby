@@ -21,7 +21,7 @@ module WHMCS
     # * <tt>:currency</tt> - the ID of the currency to set the user to
     # * <tt>:groupid</tt> - used to assign the client to a client group
     # * <tt>:notes</tt>
-    # * <tt>:cctype</tt> - Visa, Mastercard, etc...
+    # * <tt>:cardtype</tt> - Visa, Mastercard, etc...
     # * <tt>:cardnum</tt>
     # * <tt>:expdate</tt> - in the format MMYY
     # * <tt>:startdate</tt>
@@ -38,6 +38,10 @@ module WHMCS
     end
 
     # Update a client's info
+    # 
+    # Required parameter:
+    #
+    # * <tt>:clientid</tt>
     #
     # Parameters:
     #
