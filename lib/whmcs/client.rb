@@ -326,5 +326,21 @@ module WHMCS
       params.merge!(:action => 'sendemail')
       send_request(params)
     end
+    
+    # Add cancel request to client
+    #
+    #parameters:
+    #
+    # * <tt>:serviceid</tt> - Service ID to be cancelled
+    # * <tt>:type</tt> - 'Immediate' OR 'End of Billing Period'
+    # * <tt>:reaon</tt> - Reason for cancel - Optional
+    #
+    # See:
+    #
+    # http://docs.whmcs.com/API:Add_Cancel_Request
+    def self.add_cancel_request(params = {})
+      params.merge!(:action => 'addcancelrequest')
+      send_request(params)
+    end
   end
 end
