@@ -329,7 +329,7 @@ module WHMCS
     
     # Add cancel request to client
     #
-    #parameters:
+    # Parameters:
     #
     # * <tt>:serviceid</tt> - Service ID to be cancelled
     # * <tt>:type</tt> - 'Immediate' OR 'End of Billing Period'
