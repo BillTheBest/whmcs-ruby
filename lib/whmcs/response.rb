@@ -2,10 +2,10 @@ module WHMCS
   # WHMCS::Response is a wrapper around the xml or json returned
   # by WHMCS
   class Response
-    attr_reader :body, :status
+    attr_reader :body, :status, :attributes
 
     def initialize(attributes)
-      @attributes = attributes
+      @attributes = HashWithIndifferentAccess.new(attributes)
     end
   
     def success?
@@ -14,6 +14,10 @@ module WHMCS
   
     def strip(str)
       str = str.gsub />\.+/, ">"
+    end
+    
+    def key?(k)
+      @attributes.key?(k)
     end
   
     def method_missing(m, *args, &block)

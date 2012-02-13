@@ -26,5 +26,23 @@ class ResponseTest < Test::Unit::TestCase
 
       assert !response.success?
     end
+    
+    should "expose attributes hash" do
+      hash = { "name" => "Felipe", "password" => "password"}
+      response = WHMCS::Response.new(hash)
+      
+      assert response.attributes['name']     == "Felipe"
+      assert response.attributes['password'] == "password"
+    end
+    
+    should "have a method has_key?" do
+      hash = { "name" => "Felipe", "password" => "password"}
+      response = WHMCS::Response.new(hash)
+      
+      assert response.key?('name')
+      assert response.key?('password')
+      assert !response.key?('mame')
+      assert !response.key?('massword')
+    end
   end
 end
