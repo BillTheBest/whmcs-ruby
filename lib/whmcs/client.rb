@@ -342,5 +342,21 @@ module WHMCS
       params.merge!(:action => 'addcancelrequest')
       send_request(params)
     end
+    
+    # Add a credit to client's account
+    #
+    # Parameters:
+    #
+    # * <tt>:clientid</tt> - the ID of the client the credit is to be added to
+    # * <tt>:description</tt> - reason for credit being added (stored in admin credit log)
+    # * <tt>:amount</tt> - the amount to be added
+    #
+    # See:
+    #
+    # http://wiki.whmcs.com/API:Add_Credit
+    def self.add_credit(params = {})
+      params.merge!(:action => 'addcredit')
+      send_request(params)
+    end
   end
 end
