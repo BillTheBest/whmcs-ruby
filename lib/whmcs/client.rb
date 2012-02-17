@@ -90,6 +90,20 @@ module WHMCS
       send_request(params)
     end
 
+    # Close a client
+    #
+    # Parameters:
+    #
+    # * <tt>:clientid</tt> - ID Number of the client to close
+    #
+    # See:
+    #
+    # http://wiki.whmcs.com/API:Close_Client
+    def self.close_client(params = {})
+      params.merge!(:action => 'closeclient')
+      send_request(params)
+    end
+
     # Get multiple clients
     #
     # Parameters:
