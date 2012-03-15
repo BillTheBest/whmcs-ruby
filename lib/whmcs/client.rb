@@ -372,5 +372,27 @@ module WHMCS
       params.merge!(:action => 'addcredit')
       send_request(params)
     end
+
+    # Updates a client addon
+    #
+    # Parameters:
+    #
+    # * <tt>:addonid</tt> - the ID of the client the credit is to be added to
+    # * <tt>:name</tt> - reason for credit being added (stored in admin credit log)
+    # * <tt>:setupfee</tt> - Setup fee cost. No symbol, just xx.xx
+    # * <tt>:recurring</tt> - Setup fee cost. No symbol, just xx.xx
+    # * <tt>:billingcycle</tt> - One of Free Account, One Time, Monthly, Quarterly, Semi-Annually, Annually, Biennially or Triennially
+    # * <tt>:nextduedate</tt> - Update the next due date yyyymmdd
+    # * <tt>:nextinvoicedate</tt> - Update the next invoice date yyyymmdd
+    # * <tt>:notes</tt> - add custom notes to the addon
+    # * <tt>:status</tt> - Pending, Active, Suspended, Cancelled, Terminated, Fraud
+    #
+    # See:
+    #
+    # http://docs.whmcs.com/API:Update_Client_Addon
+    def self.update_client_addon(params = {})
+      params.merge!(:action => 'updateclientaddon')
+      send_request(params)
+    end
   end
 end
