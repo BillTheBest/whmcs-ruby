@@ -39,7 +39,7 @@ module WHMCS
 
     # Converts the API response to a Response object
     def self.parse_response(raw)
-      return {} if raw.to_s.blank?
+      return Response.new('result' => 'success') if raw.to_s.blank?
 
       hash = if raw.match(/xml version/)
         Crack::XML.parse(raw)
