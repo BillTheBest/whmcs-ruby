@@ -27,7 +27,7 @@ Here are those.
 #### Fix from [fcoury/whmcs-ruby](https://github.com/dotblock/whmcs-ruby/compare/master...fcoury:master)
 1. Fixed breakage of hash, incases of special characters
 2. Added WHMCS::Response as an easier wrapper for the respose
-3. Attributes is now HashWithIndifferentAccess and added Response#key? 
+3. Attributes is now HashWithIndifferentAccess and added Response#key?
 4. Added Order#upgrade_product method
 5. Add cancel request though client
 6. Fixed comments on Client#add_cancel_request to match overall
@@ -68,7 +68,10 @@ details.
 
 
 ## Installation
-	
+
+Caveat: `gem install whmcs-ruby` will not work as this isn't pushed yet.
+
+
     gem 'whmcs-ruby', :git => 'https://github.com/megamsys/whmcs-ruby.git'
 
 

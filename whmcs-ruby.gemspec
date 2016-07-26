@@ -16,8 +16,8 @@ Gem::Specification.new do |s|
   s.files           += Dir['lib/**/*']
   s.files           += Dir['test/**/*']
 
-  s.add_dependency('crack', '= 0.1.8')
-  s.add_dependency('htmlentities', '= 4.3.1')
+  s.add_dependency('crack', '= 0.4.3')
+  s.add_dependency('htmlentities', '= 4.3.4')
 
   s.add_development_dependency('shoulda')
 
