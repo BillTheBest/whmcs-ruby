@@ -12,29 +12,27 @@ whmcs-ruby provides Ruby bindings for the [WHMCS API](http://wiki.whmcs.com/API:
 that are hidden inside or not merged into dotblock/whmcs-ruby
 
 ## Several nice contributions haven't gone upstream or merged :(
+
+### megamsys/whmcs-ruby descends from [timrogers/whmcs-ruby](https://github.com/timrogers/whmcs-ruby)
+
 Here are those.
 
-### This repo descends from
-https://github.com/timrogers/whmcs-ruby
-
-#### Adds getproducts
-- https://github.com/timrogers/whmcs-ruby/commit/4e5406158ebbcdfdd505aa485822be80930cadfd
+#### Fix from [timrogers/whmcs-ruby](https://github.com/timrogers/whmcs-ruby/commit/4e5406158ebbcdfdd505aa485822be80930cadfd)
+1) Adds getproducts
 
 
-### API key access
-https://github.com/anvyst/whmcs-ruby
-https://github.com/dotblock/whmcs-ruby/pull/4
+### Fix from [anvyst/whmcs-ruby](https://github.com/anvyst/whmcs-ruby)
+1) API key access
 
-#### Fixed breakage of hash, incases of special characters
-https://github.com/dotblock/whmcs-ruby/commit/dcc3759456e666cb8e6bdb0ce5cb367e4cb95ac7
+#### Fix from [fcoury/whmcs-ruby](https://github.com/dotblock/whmcs-ruby/compare/master...fcoury:master)
+1) Fixed breakage of hash, incases of special characters
+2) Added WHMCS::Response as an easier wrapper for the respose
+3) Attributes is now HashWithIndifferentAccess and added Response#key? 
+4) Added Order#upgrade_product method
+5) Add cancel request though client
+6) Fixed comments on Client#add_cancel_request to match overall
+7) Moved add_credit from Invoice to Client
 
-#### Added WHMCS::Response as an easier wrapper for the respose
-#### Attributes is now HashWithIndifferentAccess and added Response#key? m…  …
-#### Added Order#upgrade_product method.			5a9e85b
-#### Add cancel request though client			058f88c
-#### Fixed comments on Client#add_cancel_request to match overall
-#### Moved add_credit from Invoice to Client
-https://github.com/dotblock/whmcs-ruby/compare/master...fcoury:master
 
 ## Usage
 
