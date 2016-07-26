@@ -162,12 +162,26 @@ module WHMCS
       params.merge!(:action => 'deleteorder')
       send_request(params)
     end
-    
+
+    # Order fraud check
+    #
+    # Parameters:
+    #
+    # * <tt>:orderid</tt> - the Order ID
+    #
+    # See:
+    #
+    # http://docs.whmcs.com/API:Order_Fraud_Check
+    def self.order_fraud_check(params = {})
+      params.merge!(:action => 'orderfraudcheck')
+      send_request(params)
+    end
+
     # Calculate the cost for an upgrade or downgrade of a
     # product/service, and create an order for it.
     #
     # Parameters:
-    # 
+    #
     # * <tt>:clientid</tt> - the client ID to be upgraded
     # * <tt>:serviceid</tt> - the service ID to be upgraded
     # * <tt>:type</tt> - either "product" or "configoptions"
