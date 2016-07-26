@@ -69,7 +69,7 @@ details.
 
 ## Installation
 	
-    gem 'whmcs-ruby', '0.4', :source => 'https://github.com/megamsys/whmcs-ruby.git'
+    gem 'whmcs-ruby', :git => 'https://github.com/megamsys/whmcs-ruby.git'
 
 
 ## Copyright
