@@ -18,20 +18,20 @@ that are hidden inside or not merged into dotblock/whmcs-ruby
 Here are those.
 
 #### Fix from [timrogers/whmcs-ruby](https://github.com/timrogers/whmcs-ruby/commit/4e5406158ebbcdfdd505aa485822be80930cadfd)
-1) Adds getproducts
+1. Adds getproducts
 
 
 ### Fix from [anvyst/whmcs-ruby](https://github.com/anvyst/whmcs-ruby)
-1) API key access
+1. API key access
 
 #### Fix from [fcoury/whmcs-ruby](https://github.com/dotblock/whmcs-ruby/compare/master...fcoury:master)
-1) Fixed breakage of hash, incases of special characters
-2) Added WHMCS::Response as an easier wrapper for the respose
-3) Attributes is now HashWithIndifferentAccess and added Response#key? 
-4) Added Order#upgrade_product method
-5) Add cancel request though client
-6) Fixed comments on Client#add_cancel_request to match overall
-7) Moved add_credit from Invoice to Client
+1. Fixed breakage of hash, incases of special characters
+2. Added WHMCS::Response as an easier wrapper for the respose
+3. Attributes is now HashWithIndifferentAccess and added Response#key? 
+4. Added Order#upgrade_product method
+5. Add cancel request though client
+6. Fixed comments on Client#add_cancel_request to match overall
+7. Moved add_credit from Invoice to Client
 
 
 ## Usage
