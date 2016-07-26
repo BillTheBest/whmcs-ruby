@@ -162,5 +162,28 @@ module WHMCS
       params.merge!(:action => 'deleteorder')
       send_request(params)
     end
+    
+    # Calculate the cost for an upgrade or downgrade of a
+    # product/service, and create an order for it.
+    #
+    # Parameters:
+    # 
+    # * <tt>:clientid</tt> - the client ID to be upgraded
+    # * <tt>:serviceid</tt> - the service ID to be upgraded
+    # * <tt>:type</tt> - either "product" or "configoptions"
+    # * <tt>:newproductid</tt> - if upgrade type = product, the new product ID to upgrade to
+    # * <tt>:newproductbillingcycle</tt> - monthly, quarterly, etc...
+    # * <tt>:configoptions[x]</tt> - if upgrade type = configoptions, an array of config options
+    # * <tt>:paymentmethod</tt> - the payment method for the order (paypal, authorize, etc...)
+    # * <tt>:ordernotes</tt> - any admin notes to add to the order (optional)
+    # * <tt>:calconly</tt> - set true to just validate upgrade and get price, false to actually create order
+    #
+    # See:
+    #
+    # http://docs.whmcs.com/API:Upgrade_Product
+    def self.upgrade_product(params = {})
+      params.merge!(:action => 'upgradeproduct')
+      send_request(params)
+    end
   end
 end

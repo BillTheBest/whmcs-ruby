@@ -21,7 +21,7 @@ module WHMCS
     # * <tt>:currency</tt> - the ID of the currency to set the user to
     # * <tt>:groupid</tt> - used to assign the client to a client group
     # * <tt>:notes</tt>
-    # * <tt>:cctype</tt> - Visa, Mastercard, etc...
+    # * <tt>:cardtype</tt> - Visa, Mastercard, etc...
     # * <tt>:cardnum</tt>
     # * <tt>:expdate</tt> - in the format MMYY
     # * <tt>:startdate</tt>
@@ -38,6 +38,10 @@ module WHMCS
     end
 
     # Update a client's info
+    #
+    # Required parameter:
+    #
+    # * <tt>:clientid</tt>
     #
     # Parameters:
     #
@@ -83,6 +87,20 @@ module WHMCS
     # http://wiki.whmcs.com/API:Delete_Client
     def self.delete_client(params = {})
       params.merge!(:action => 'deleteclient')
+      send_request(params)
+    end
+
+    # Close a client
+    #
+    # Parameters:
+    #
+    # * <tt>:clientid</tt> - ID Number of the client to close
+    #
+    # See:
+    #
+    # http://wiki.whmcs.com/API:Close_Client
+    def self.close_client(params = {})
+      params.merge!(:action => 'closeclient')
       send_request(params)
     end
 
@@ -322,6 +340,7 @@ module WHMCS
       params.merge!(:action => 'sendemail')
       send_request(params)
     end
+<<<<<<< HEAD
 
     # Get a list of domains for a client
     #
@@ -338,6 +357,60 @@ module WHMCS
     # http://docs.whmcs.com/API:Get_Clients_Domains
     def self.get_clients_domains(params = {})
       params.merge!(:action => 'getclientsdomains')
+      send_request(params)
+    end
+    
+    # Add cancel request to client
+    #
+    # Parameters:
+    #
+    # * <tt>:serviceid</tt> - Service ID to be cancelled
+    # * <tt>:type</tt> - 'Immediate' OR 'End of Billing Period'
+    # * <tt>:reaon</tt> - Reason for cancel - Optional
+    #
+    # See:
+    #
+    # http://docs.whmcs.com/API:Add_Cancel_Request
+    def self.add_cancel_request(params = {})
+      params.merge!(:action => 'addcancelrequest')
+      send_request(params)
+    end
+
+    # Add a credit to client's account
+    #
+    # Parameters:
+    #
+    # * <tt>:clientid</tt> - the ID of the client the credit is to be added to
+    # * <tt>:description</tt> - reason for credit being added (stored in admin credit log)
+    # * <tt>:amount</tt> - the amount to be added
+    #
+    # See:
+    #
+    # http://wiki.whmcs.com/API:Add_Credit
+    def self.add_credit(params = {})
+      params.merge!(:action => 'addcredit')
+      send_request(params)
+    end
+
+    # Updates a client addon
+    #
+    # Parameters:
+    #
+    # * <tt>:addonid</tt> - the ID of the client the credit is to be added to
+    # * <tt>:name</tt> - reason for credit being added (stored in admin credit log)
+    # * <tt>:setupfee</tt> - Setup fee cost. No symbol, just xx.xx
+    # * <tt>:recurring</tt> - Setup fee cost. No symbol, just xx.xx
+    # * <tt>:billingcycle</tt> - One of Free Account, One Time, Monthly, Quarterly, Semi-Annually, Annually, Biennially or Triennially
+    # * <tt>:nextduedate</tt> - Update the next due date yyyymmdd
+    # * <tt>:nextinvoicedate</tt> - Update the next invoice date yyyymmdd
+    # * <tt>:notes</tt> - add custom notes to the addon
+    # * <tt>:status</tt> - Pending, Active, Suspended, Cancelled, Terminated, Fraud
+    #
+    # See:
+    #
+    # http://docs.whmcs.com/API:Update_Client_Addon
+    def self.update_client_addon(params = {})
+      params.merge!(:action => 'updateclientaddon')
       send_request(params)
     end
   end

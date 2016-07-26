@@ -1,5 +1,6 @@
 require 'net/http'
 require 'net/https'
+require 'htmlentities'
 require 'crack'
 
 module WHMCS
@@ -22,6 +23,11 @@ module WHMCS
         :password => WHMCS.config.api_password
       )
 
+	  # alternative API access
+	  if( !WHMCS.config.api_access_key.nil? )
+		  params.merge!( :accesskey => WHMCS.config.api_access_key )
+	  end
+
       url = URI.parse(WHMCS.config.api_url)
 
       http = Net::HTTP.new(url.host, url.port)
@@ -34,18 +40,20 @@ module WHMCS
       req.set_form_data(params)
 
       res = http.start { |http| http.request(req) }
-      parse_response(res.body)
+      parse_response(HTMLEntities.new.decode(res.body))
     end
 
-    # Converts the API response to a Hash
+    # Converts the API response to a Response object
     def self.parse_response(raw)
-      return {} if raw.to_s.blank?
+      return Response.new('result' => 'success') if raw.to_s.blank?
 
-      if raw.match(/xml version/)
+      hash = if raw.match(/xml version/)
         Crack::XML.parse(raw)
       else
         Hash[raw.split(';').map { |line| line.split('=') }]
       end
+      
+      Response.new(hash)
     end
   end
 end
