@@ -24,7 +24,7 @@ module WHMCS
       )
 
 	  # alternative API access
-	  if( !WHMCS.config.api_access_key.nil? )
+	  unless WHMCS.config.api_access_key.nil?
 		  params.merge!( :accesskey => WHMCS.config.api_access_key )
 	  end
 
@@ -40,11 +40,13 @@ module WHMCS
       req.set_form_data(params)
 
       res = http.start { |http| http.request(req) }
-      parse_response(HTMLEntities.new.decode(res.body))
+      parse_response(res.body)
     end
 
     # Converts the API response to a Response object
-    def self.parse_response(raw)
+    def self.parse_response(res_body)
+      raw = HTMLEntities.new.decode(res_body)
+
       return Response.new('result' => 'success') if raw.to_s.blank?
 
       hash = if raw.match(/xml version/)
@@ -52,7 +54,7 @@ module WHMCS
       else
         Hash[raw.split(';').map { |line| line.split('=') }]
       end
-      
+
       Response.new(hash)
     end
   end
