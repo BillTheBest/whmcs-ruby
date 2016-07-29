@@ -57,7 +57,7 @@ Using API Access Key might be useful for mobile devices and/or IPv6 bug WHMCS wh
       config.api_url      = 'http://example.com/includes/api.php'
       config.api_username = 'someusername'
       config.api_password = 'c4ca4238a0b923820dcc509a6f75849b' # md5 hash
-	  config.api_access_key = 'YetAnotherAPIAccessKeyForWHMCS'
+      config.api_access_key = 'YetAnotherAPIAccessKeyForWHMCS'
     end
 
     WHMCS::Client.get_clients_details(:clientid => '1')
@@ -72,7 +72,7 @@ details.
 Caveat: `gem install whmcs-ruby` will not work as this isn't pushed yet.
 
 
-    gem 'whmcs-ruby', :git => 'https://github.com/megamsys/whmcs-ruby.git'
+    gem 'whmcs-ruby', :git => 'https://github.com/timrogers/whmcs-ruby.git'
 
 
 ## Copyright

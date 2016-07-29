@@ -340,7 +340,6 @@ module WHMCS
       params.merge!(:action => 'sendemail')
       send_request(params)
     end
-<<<<<<< HEAD
 
     # Get a list of domains for a client
     #
@@ -359,7 +358,7 @@ module WHMCS
       params.merge!(:action => 'getclientsdomains')
       send_request(params)
     end
-    
+
     # Add cancel request to client
     #
     # Parameters:
