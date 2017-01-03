@@ -33,8 +33,10 @@ module WHMCS
       http = Net::HTTP.new(url.host, url.port)
 
       if url.port == 443
-        http.use_ssl = true
+      http.use_ssl = true
+      http.verify_mode = OpenSSL::SSL::VERIFY_NONE
       end
+
 
       req = Net::HTTP::Post.new(url.path)
       req.set_form_data(params)
