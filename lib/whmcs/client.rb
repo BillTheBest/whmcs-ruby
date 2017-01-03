@@ -391,6 +391,11 @@ module WHMCS
       send_request(params)
     end
 
+    def self.get_credit(params = {})
+      params.merge!(:action => 'getcredits')
+      send_request(params)
+    end
+
     # Updates a client addon
     #
     # Parameters:
