@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.files           += Dir['test/**/*']
 
   s.add_dependency('crack', '~> 0.4.3')
-  s.add_dependency('htmlentities', '~> 4.3.4')
+  s.add_dependency('megam_htmlentities', '~> 4.3.4')
 
   s.add_development_dependency('shoulda')
 
